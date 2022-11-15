@@ -12,10 +12,10 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
-public class xml {
+public class Xml {
     private String nameFile;
     private ArrayList<Shop> shops;
-    public xml(String nameFile) {
+    public Xml(String nameFile) {
         this.nameFile = nameFile;
     }
 
