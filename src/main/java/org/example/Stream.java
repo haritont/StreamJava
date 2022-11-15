@@ -20,4 +20,8 @@ public class Stream {
     public void sortDepartment(){
         shops.stream().forEach(x -> x.getDepartments().stream().sorted(Comparator.comparing(Department::getDepartment)).forEach(y -> System.out.println(y.getDepartment())));
     }
+
+    public void sortShops(){
+        shops.stream().sorted(Comparator.comparing(Shop::getName)).forEach(x->System.out.println(x.name));
+    }
 }
