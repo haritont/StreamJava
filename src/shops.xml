@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shops>
+  <shop>
+     <name>Магазин1</name>
+     <department>
+          <nameDep>Молочный отдел</nameDep>
+          <product type="Сыр" price="200" />
+          <product type="Молоко" price="50" />
+          <product type="Йогурт" price="60" />
+          <product type="Творог" price="100" />
+     </department>
+     <department>
+           <nameDep>Мясной отдел</nameDep>
+           <product type="Котлеты" price="300" />
+           <product type="Филе" price="250" />
+           <product type="Сосиски" price="200" />
+     </department>
+      <department>
+          <nameDep>Фруктовый отдел</nameDep>
+          <product type="Апельсин" price="30" />
+          <product type="Банан" price="40" />
+          <product type="Ананас" price="150" />
+          <product type="Яблоко" price="20" />
+      </department>
+  </shop>
+  <shop>
+     <name>Магазин2</name>
+     <department>
+           <nameDep>Молочный отдел</nameDep>
+           <product type="Сыр" price="250" />
+           <product type="Йогурт" price="40" />
+     </department>
+     <department>
+           <nameDep>Фруктовый отдел</nameDep>
+           <product type="Апельсин" price="15" />
+           <product type="Банан" price="30" />
+     </department>
+  </shop>
+    <shop>
+        <name>Магазин3</name>
+        <department>
+            <nameDep>Молочный отдел</nameDep>
+            <product type="Сыр" price="100" />
+            <product type="Молоко" price="30" />
+            <product type="Йогурт" price="80" />
+            <product type="Творог" price="80" />
+            <product type="Сырок" price="40" />
+        </department>
+        <department>
+            <nameDep>Мясной отдел</nameDep>
+            <product type="Котлеты" price="100" />
+            <product type="Филе" price="300" />
+            <product type="Сосиски" price="150" />
+            <product type="Фарш" price="250" />
+        </department>
+        <department>
+            <nameDep>Фруктовый отдел</nameDep>
+            <product type="Апельсин" price="60" />
+            <product type="Банан" price="20" />
+            <product type="Ананас" price="50" />
+            <product type="Яблоко" price="15" />
+        </department>
+        <department>
+            <nameDep>Овощной отдел</nameDep>
+            <product type="Огурец" price="20" />
+            <product type="Помидор" price="20" />
+            <product type="Лук" price="15" />
+            <product type="Чеснок" price="7" />
+        </department>
+    </shop>
+    <shop>
+        <name>Магазин4</name>
+        <department>
+            <nameDep>Фруктовый отдел</nameDep>
+            <product type="Апельсин" price="30" />
+            <product type="Банан" price="40" />
+            <product type="Ананас" price="80" />
+            <product type="Яблоко" price="20" />
+            <product type="Груша" price="20" />
+        </department>
+        <department>
+            <nameDep>Овощной отдел</nameDep>
+            <product type="Огурец" price="10" />
+            <product type="Помидор" price="10" />
+            <product type="Лук" price="5" />
+            <product type="Чеснок" price="6" />
+            <product type="Перец" price="20" />
+        </department>
+    </shop>
+</shops>
