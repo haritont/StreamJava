@@ -9,6 +9,7 @@ public class Main {
        xml.readXml();
        Stream stream = new Stream();
        stream.setShops(xml.getShops());
-       stream.printNamesShops();
+       //stream.print();
+       stream.sortDepartment();
     }
 }

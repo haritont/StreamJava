@@ -1,6 +1,7 @@
 package org.example;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 
 public class Stream {
     private ArrayList<Shop> shops;
@@ -12,7 +13,11 @@ public class Stream {
         return shops;
     }
 
-    public void printNamesShops(){
+    public void print(){
         shops.stream().map(x->x.getName()).forEach(x -> System.out.println(x));
+    }
+
+    public void sortDepartment(){
+        shops.stream().forEach(x -> x.getDepartments().stream().sorted(Comparator.comparing(Department::getDepartment)).forEach(y -> System.out.println(y.getDepartment())));
     }
 }
