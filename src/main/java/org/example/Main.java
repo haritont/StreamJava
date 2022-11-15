@@ -10,7 +10,8 @@ public class Main {
        Stream stream = new Stream();
        stream.setShops(xml.getShops());
        //stream.print();
-        // stream.sortDepartment();
-        stream.sortShops();
+        // stream.sortDepartments();
+        //stream.sortShops();
+        stream.filterCountDepartments(2);
     }
 }
