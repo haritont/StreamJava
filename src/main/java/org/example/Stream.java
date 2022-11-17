@@ -2,6 +2,8 @@ package org.example;
 
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class Stream {
     private ArrayList<Shop> shops;
@@ -21,8 +23,8 @@ public class Stream {
         shops.stream().map(x -> x.getName()).forEach(x -> System.out.println(x));
     }
 
-    public void sortShops() {
-        shops.stream().sorted(Comparator.comparing(Shop::getName)).forEach(x -> System.out.println(x.getName()));
+    public List<Shop> sortShops() {
+       return shops.stream().sorted(Comparator.comparing(Shop::getName)).collect(Collectors.toList());
     }
 
     public void sortDepartments() {
