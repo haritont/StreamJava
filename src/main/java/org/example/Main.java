@@ -12,6 +12,7 @@ public class Main {
        //stream.print();
         // stream.sortDepartments();
         //stream.sortShops();
-        stream.filterCountDepartments(2);
+       // stream.filterCountDepartments(2);
+        stream.filterNameShops("Магазин1");
     }
 }
