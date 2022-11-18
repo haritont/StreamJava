@@ -19,8 +19,9 @@ public class Stream {
         return shops;
     }
 
-    public void printShops() {
-        shops.stream().map(x -> x.getName()).forEach(x -> System.out.println(x));
+    public void print() {
+        shops.stream().forEach(x -> x.getDepartments().stream().forEach(y -> y.getProducts().stream()
+                .forEach(z -> System.out.println(x.getName()+" "+y.getDepartment()+" "+z.getProduct()+" "+z.getPrice()))));
     }
 
     public List<Shop> sortShops() {
@@ -28,7 +29,7 @@ public class Stream {
     }
 
     public void sortDepartments() {
-        shops.stream().forEach(x -> x.getDepartments().stream().sorted(Comparator.comparing(Department::getDepartment)).forEach(y -> System.out.println(y.getDepartment())));
+        shops.stream().forEach(x -> x.getDepartments().stream().sorted(Comparator.comparing(Department::getDepartment)).forEach(y->System.out.println(x.getName()+" "+y.getDepartment())));
     }
     public void filterNameShops(String name) {
         shops.stream().filter(x -> x.getName().equals(name)).forEach(x -> System.out.println(x.getName()));
