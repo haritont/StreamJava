@@ -2,7 +2,6 @@ package org.example;
 
 import javax.xml.stream.XMLStreamException;
 import java.io.FileNotFoundException;
-import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -37,10 +36,13 @@ public class Main {
                     break;
                 }
                 case "help": {
-                    System.out.println("print вывести магазины с отделами и продуктами\nsortShops отсортировать магазины по наименованию\n" +
-                            "sortDepartments отсортировать отделы магазинов по наименованию\n" +
-                            "filterCountDepartments вывести наименования магазинов с заданным количеством отделов\n" +
-                            "filterNameShops вывести заданое наименование магазина\n");
+                    System.out.println("""
+                            print вывести магазины с отделами и продуктами
+                            sortShops отсортировать магазины по наименованию
+                            sortDepartments отсортировать отделы магазинов по наименованию
+                            filterCountDepartments вывести наименования магазинов с заданным количеством отделов
+                            filterNameShops вывести заданое наименование магазина
+                            """);
 
                 }
                 default: break;
