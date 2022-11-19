@@ -24,12 +24,13 @@ public class Stream {
                 .forEach(z -> System.out.println(x.getName()+" "+y.getDepartment()+" "+z.getProduct()+" "+z.getPrice()))));
     }
 
-    public List<Shop> sortShops() {
-       return shops.stream().sorted(Comparator.comparing(Shop::getName)).collect(Collectors.toList());
+    public void sortShops() {
+       shops = (ArrayList<Shop>) shops.stream().sorted(Comparator.comparing(Shop::getName)).collect(Collectors.toList());
     }
 
     public void sortDepartments() {
-        shops.stream().forEach(x -> x.getDepartments().stream().sorted(Comparator.comparing(Department::getDepartment)).forEach(y->System.out.println(x.getName()+" "+y.getDepartment())));
+        shops.stream().forEach(x -> x.getDepartments().stream().sorted(Comparator.comparing(Department::getDepartment))
+                .forEach(y->System.out.println(x.getName()+" "+y.getDepartment())));
     }
     public void filterNameShops(String name) {
         shops.stream().filter(x -> x.getName().equals(name)).forEach(x -> System.out.println(x.getName()));

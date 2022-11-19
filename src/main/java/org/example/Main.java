@@ -21,7 +21,7 @@ public class Main {
                     break;
                 }
                 case "sortShops": {
-                    List<Shop> shops = stream.sortShops();
+                    stream.sortShops();
                     break;
                 }
                 case "sortDepartments": {
