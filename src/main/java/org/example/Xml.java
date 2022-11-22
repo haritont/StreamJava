@@ -1,4 +1,6 @@
 package org.example;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
 import javax.xml.namespace.QName;
 import javax.xml.stream.XMLEventReader;
@@ -12,16 +14,11 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
+@RequiredArgsConstructor
+@Getter
 public class Xml {
-    private String nameFile;
+    final String nameFile;
     private ArrayList<Shop> shops;
-    public Xml(String nameFile) {
-        this.nameFile = nameFile;
-    }
-
-    public ArrayList<Shop> getShops() {
-        return shops;
-    }
 
     public void readXml() throws FileNotFoundException, XMLStreamException {
         shops = new ArrayList<>();
@@ -29,7 +26,7 @@ public class Xml {
         ArrayList<Department> departments = null;
         Department department = null;
         ArrayList<Product> products = null;
-        Product product = null;
+        Product product;
         XMLInputFactory factory = XMLInputFactory.newInstance();
         XMLEventReader reader = factory.createXMLEventReader(new FileInputStream(nameFile));
 
@@ -38,30 +35,40 @@ public class Xml {
             if (event.isStartElement()) {
                 StartElement start = event.asStartElement();
                 String nameStart = start.getName().getLocalPart();
-                if (nameStart.equals("shop")) {
-                    shop = new Shop();
-                    departments = new ArrayList<>();
-                } else if (nameStart.equals("name")) {
-                    event = reader.nextEvent();
-                    shop.setName(event.asCharacters().getData());
-                } else if (nameStart.equals("department")) {
-                    department = new Department();
-                    products = new ArrayList<>();
-                } else if (nameStart.equals("nameDep")) {
-                    event = reader.nextEvent();
-                    department.setDepartment(event.asCharacters().getData());
-                } else if (nameStart.equals("product")) {
-                    product = new Product();
-                    Attribute prodAttr = start.getAttributeByName(new QName("type"));
-                    product.setProduct(prodAttr.getValue());
-                    Attribute priceAttr = start.getAttributeByName(new QName("price"));
-                    product.setPrice(Integer.parseInt(priceAttr.getValue()));
-                    products.add(product);
-                    department.setProducts(products);
+                switch (nameStart) {
+                    case "shop" -> {
+                        shop = new Shop();
+                        departments = new ArrayList<>();
+                    }
+                    case "name" -> {
+                        event = reader.nextEvent();
+                        assert shop != null;
+                        shop.setName(event.asCharacters().getData());
+                    }
+                    case "department" -> {
+                        department = new Department();
+                        products = new ArrayList<>();
+                    }
+                    case "nameDep" -> {
+                        event = reader.nextEvent();
+                        assert department != null;
+                        department.setName(event.asCharacters().getData());
+                    }
+                    case "product" -> {
+                        product = new Product();
+                        Attribute prodAttr = start.getAttributeByName(new QName("type"));
+                        product.setName(prodAttr.getValue());
+                        Attribute priceAttr = start.getAttributeByName(new QName("price"));
+                        product.setPrice(priceAttr.getValue());
+                        assert products != null;
+                        products.add(product);
+                        department.setProducts(products);
+                    }
                 }
             } else if (event.isEndElement()) {
                 EndElement end = event.asEndElement();
                 if (end.getName().getLocalPart().equals("department")) {
+                    assert departments != null;
                     departments.add(department);
                     shop.setDepartments(departments);
                 } else if (end.getName().getLocalPart().equals("shop")) {
@@ -71,4 +78,3 @@ public class Xml {
         }
     }
 }
-

@@ -1,18 +1,13 @@
 package org.example;
 
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@RequiredArgsConstructor
 public class Product {
-    public String product;
-    public int price;
-    public void setProduct(String product){
-        this.product = product;
-    }
-    public void setPrice(int price){
-        this.price = price;
-    }
-    public String getProduct() {
-        return product;
-    }
-    public int getPrice() {
-        return price;
-    }
+    private String name;
+    private String price;
 }

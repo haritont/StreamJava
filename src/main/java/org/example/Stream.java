@@ -2,7 +2,6 @@ package org.example;
 
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.List;
 import java.util.stream.Collectors;
 
 public class Stream {
@@ -13,10 +12,6 @@ public class Stream {
 
     public void setShops(ArrayList<Shop> shops) {
         this.shops = shops;
-    }
-
-    public ArrayList<Shop> getShops() {
-        return shops;
     }
 
     public void print() {
